@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <type name="Magento\Checkout\Block\Onepage">
+        <arguments>
+            <argument name="layoutProcessors" xsi:type="array">
+                <item name="yireo-example-checkout-fields-note-field" xsi:type="object">Yireo\ExampleAddressFieldNote\Processor\NoteAddressField</item>
+            </argument>
+        </arguments>
+    </type>
+    <type name="Magento\Customer\Block\Address\Edit">
+        <plugin name="yireo-example-checkout-fields-block-address-form" type="Yireo\ExampleAddressFieldNote\Plugin\AddNoteFieldToAddressForm" />
+    </type>
+    <type name="Magento\Customer\Api\AddressRepositoryInterface">
+        <plugin name="yireo-example-checkout-fields-repository-address" type="Yireo\ExampleAddressFieldNote\Plugin\AddNoteFieldToAddressEntity" />
+    </type>
+    <type name="Magento\Customer\Api\Data\AddressInterface">
+        <plugin name="yireo-example-checkout-fields-model-address" type="Yireo\ExampleAddressFieldNote\Plugin\FixGetExtensionAttributes" />
+    </type>
+</config>
