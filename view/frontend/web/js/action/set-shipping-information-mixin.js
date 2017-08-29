@@ -13,7 +13,9 @@ define([
                 shippingAddress['extension_attributes'] = {};
             }
 
-            shippingAddress['extension_attributes']['note'] = shippingAddress.customAttributes['note'];
+            if (shippingAddress.customAttributes !== undefined && shippingAddress.customAttributes.note !== undefined) {
+                shippingAddress['extension_attributes']['note'] = shippingAddress.customAttributes['note'];
+            }
 
             return originalAction();
         });
