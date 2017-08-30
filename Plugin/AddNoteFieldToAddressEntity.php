@@ -67,6 +67,11 @@ class AddNoteFieldToAddressEntity
      */
     private function getNoteByEntityId(Entity $entity)
     {
-        return $entity->getCustomAttribute('internal_note')->getValue();
+        $attribute = $entity->getCustomAttribute('internal_note');
+        if ($attribute) {
+            return $attribute->getValue();
+        }
+
+        return '';
     }
 }
