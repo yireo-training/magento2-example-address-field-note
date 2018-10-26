@@ -50,7 +50,7 @@ class NoteAddressField extends AbstractTotalsProcessor implements LayoutProcesso
             ]
         ];
 
-        $jsLayout = array_merge_recursive($jsLayout, $newJsLayout);
+        $jsLayout = array_merge_recursive($jsLayout, $newJsLayout); // @todo: of array_replace_recursive?
 
         return $jsLayout;
     }
